@@ -7,7 +7,7 @@ const connectionString = "mongodb+srv://shubhamgaikwad2k4:hCpfqruub8PlI9rD@portf
 const app = express();
 app.use(cors(
     {
-        origin: [""],
+        origin: ["https://portfolio-mu-neon-64.vercel.app/"],
         methods: ["POST", "GET"],
         credentials: true
     }
