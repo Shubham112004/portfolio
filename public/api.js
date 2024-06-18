@@ -2,7 +2,7 @@ const { MongoClient } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
 
-const connectionString = "mongodb://127.0.0.1:27017";
+const connectionString = "mongodb+srv://shubhamgaikwad2k4:hCpfqruub8PlI9rD@portfolio.cdkosbs.mongodb.net/?retryWrites=true&w=majority&appName=portfolio";
 
 const app = express();
 app.use(cors());
