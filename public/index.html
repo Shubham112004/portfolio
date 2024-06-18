@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#myForm").submit(function (event) {
+                event.preventDefault();
+
+                var customerData = {
+                    "Name": $("#Name").val(),
+                    "Email": $("#Email").val(),
+                    "Message": $("#Message").val()
+                };
+                $.ajax({
+                    method: "POST",
+                    url: "http://127.0.0.1:2024/clientresponse",
+                    data: customerData
+                })
+                    .then(function () {
+                        alert("Thank you for your message! We will get back to you soon.");
+                        $("#myForm")[0].reset();
+                    })
+            });
+
+            $("#allProjects").click(function () {
+                $.ajax({
+                    method: "GET",
+                    url: "allprojects.html"
+                })
+                    .then(function (response) {
+                        $("#bodyContainer").html(response);
+                    })
+            })
+        });
+    </script>
+</head>
+
+<body class="container-fluid">
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../public/assets/Shubham.png" alt="logo" width="50"
+                    height="45"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutme">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <a href="#contactMe" style=" text-decoration: none;"><span class="bi bi-person"
+                            style="font-size: 18px;"></span>
+                        Contact</a>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="content">
+            <h2>Shubham</h2>
+            <h2>Shubham</h2>
+
+        </div>
+
+    </div>
+    <div class="sub-content">
+        <div class="inner-sub-content">
+            <h2 style="color: #CDE8E5;">FULL STACK</h2>
+            <h2 style="color: #7AB2B2;">DEVELOPER</h2>
+        </div>
+    </div>
+
+    <div id="bodyContainer">
+        <div class="animatedImage">
+            <img src="../public/assets/abc.gif" alt="" width="100%">
+        </div>
+
+
+        <div class="aboutme-content">
+
+            <div id="aboutme" class="first-inner-aboutme-content">
+                <p style="text-align: justify; color: #4D869C;">I'm Shubham Gaikwad, a fourth-year computer science
+                    student
+                    with a deep
+                    passion for web development. I
+                    specialize
+                    in JavaScript, React, jQuery, and SaSS, with a basic understanding of backend and data structures
+                    and
+                    algorithms. I
+                    thrive in team environments and have hands-on experience from internships at A2Z Infotech Pvt. Ltd.
+                    as a
+                    frontend developer and BEONEXPERT as a full stack development intern. I am particularly interested
+                    in
+                    designing engaging and user-friendly web pages.
+                </p>
+                <button class="btn about-btn" style=" color: #CDE8E5; background-color: #4D869C;">More about me <span
+                        class="bi bi-arrow-bar-right"></span></button>
+            </div>
+            <div class="second-inner-aboutme-content">
+                <img src="../public/assets/mainImg.png" id="myImage" alt="" class="animate-image img-fluid">
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <h2 id="experiance" style="color: #4D869C;">Experience <span class="bi bi-box-arrow-right"></span></h2>
+            <p class="text-center fst-italic" style="color: #7AB2B2;">Skilled in developing responsive web applications,
+                designing intuitive user
+                interfaces,
+                and optimizing
+                backend functionalities.</p>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="w-75">
+                    <table class="table table-sm w-100 mt-4">
+                        <thead></thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center" style="color: #7AB2B2;">04/06/2024 - Present</td>
+                                <td class="text-center" style="color: #345764;">Full Stack Developer Intern - BEONEXPERT
+                                    Technologies Pvt. Ltd.
+                                    <button class="btn expBtn1" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal1"><span
+                                            class="bi bi-arrow-up-right-square-fill ms-3"></span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center" style="color: #7AB2B2;">15/01/2024 - 01/03/2024</td>
+                                <td class="text-center" style="color: #345764;">Frontend Developer Intern - A2Z Infotech
+                                    &
+                                    A2Z IT Hub Pvt. Ltd.
+                                    <button class="btn expBtn2" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal2"><span
+                                            class="bi bi-arrow-up-right-square-fill ms-3"></span></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- modal1 - BEONEXPERT -->
+
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Achievements/Tasks</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-8 offset-2">
+                                        <div class="d-flex justify-content-center align-items-center gap-5">
+                                            <img src="../public/assets/abcc.gif" width="150" height="150">
+                                            <h2 class=" text-center">BEONEXPERT Technologies Pvt. Ltd.</h2>
+                                        </div>
+                                        <div>
+                                            <ol>
+                                                <li style="text-align: justify;" class="mt-5 mb-2">Designed and
+                                                    developed
+                                                    responsive user
+                                                    interfaces using HTML, CSS, and JavaScript,
+                                                    ensuring seamless functionality across various devices.</li>
+                                                <li style="text-align: justify;" class="mb-2">Ensured cross-browser
+                                                    compatibility and
+                                                    optimized code for performance,
+                                                    scalability, and maintainability.</li>
+                                                <li style="text-align: justify;" class="mb-2">Collaborated with
+                                                    designers to
+                                                    implement
+                                                    UI/UX
+                                                    designs, enhancing the overall user
+                                                    experience of web applications.</li>
+                                                <li style="text-align: justify;" class="mb-2">Acted upon feedback to
+                                                    continuously improve
+                                                    skills and deliver innovative solutions
+                                                    to complex technical challenges.</li>
+                                                <li style="text-align: justify;" class="mb-2">Ensured cross-browser
+                                                    compatibility and
+                                                    optimized code for performance,
+                                                    scalability, and maintainability.</li>
+                                                <li style="text-align: justify;" class=" mb-2">Designed and developed
+                                                    responsive user
+                                                    interfaces using HTML, CSS, and JavaScript,
+                                                    ensuring seamless functionality across various devices.</li>
+                                                <li style="text-align: justify;" class="mb-2">Collaborated with
+                                                    designers to
+                                                    implement
+                                                    UI/UX
+                                                    designs, enhancing the overall user
+                                                    experience of web applications.</li>
+                                                <li style="text-align: justify;" class="mb-2">Acted upon feedback to
+                                                    continuously improve
+                                                    skills and deliver innovative solutions
+                                                    to complex technical challenges.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- modal2 - A2Z -->
+
+
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Achievements/Tasks</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-8 offset-2">
+                                        <div class="d-flex justify-content-center align-items-center gap-5">
+                                            <img src="../public/assets/abcc.gif" width="150" height="150">
+                                            <h2 class="text-center">A2Z Infotech & A2Z IT Hub Pvt. Ltd.</h2>
+                                        </div>
+                                        <div>
+                                            <ol>
+                                                <li style="text-align: justify;" class="mt-5 mb-2">Designed and
+                                                    developed
+                                                    responsive user
+                                                    interfaces using HTML, CSS, and JavaScript,
+                                                    ensuring seamless functionality across various devices.</li>
+                                                <li style="text-align: justify;" class="mb-2">Ensured cross-browser
+                                                    compatibility and
+                                                    optimized code for performance,
+                                                    scalability, and maintainability.</li>
+                                                <li style="text-align: justify;" class="mb-2">Collaborated with
+                                                    designers to
+                                                    implement
+                                                    UI/UX
+                                                    designs, enhancing the overall user
+                                                    experience of web applications.</li>
+                                                <li style="text-align: justify;" class="mb-2">Acted upon feedback to
+                                                    continuously improve
+                                                    skills and deliver innovative solutions
+                                                    to complex technical challenges.</li>
+                                                <li style="text-align: justify;" class="mb-2">Ensured cross-browser
+                                                    compatibility and
+                                                    optimized code for performance,
+                                                    scalability, and maintainability.</li>
+                                                <li style="text-align: justify;" class=" mb-2">Designed and developed
+                                                    responsive user
+                                                    interfaces using HTML, CSS, and JavaScript,
+                                                    ensuring seamless functionality across various devices.</li>
+                                                <li style="text-align: justify;" class="mb-2">Collaborated with
+                                                    designers to
+                                                    implement
+                                                    UI/UX
+                                                    designs, enhancing the overall user
+                                                    experience of web applications.</li>
+                                                <li style="text-align: justify;" class="mb-2">Acted upon feedback to
+                                                    continuously improve
+                                                    skills and deliver innovative solutions
+                                                    to complex technical challenges.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 container-fluid">
+            <h2 id="experiance" style="color: #4D869C;">Skills <span class="bi bi-box-arrow-right"></span></h2>
+            <p class="text-center fst-italic" style="color: #7AB2B2;">Languages,Technologies and tools that I have
+                learned
+                and applied to my projects</p>
+        </div>
+        <div class="d-flex justify-content-center align-items-center main-skill-container"
+            style="background-color: #CDE8E5;">
+            <div class="skill-container">
+                <div class="d-flex flex-wrap justify-content-evenly mb-5 gap-2">
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/Html.svg" alt="">
+                        <figcaption class="text-center">HTML5</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/css.svg" alt="">
+                        <figcaption class="text-center">HTML5</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/bootstrap.svg" alt="">
+                        <figcaption class="text-center">Bootstrap-5.0</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/sass.svg" alt="">
+                        <figcaption class="text-center">Sass</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/js.svg" alt="">
+                        <figcaption class="text-center">JavaScript [ES6+]</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/jquery.svg" alt="">
+                        <figcaption class="text-center">jQuery</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/rjs.svg" alt="">
+                        <figcaption class="text-center">React</figcaption>
+                    </div>
+
+                </div>
+                <div class="d-flex flex-wrap justify-content-evenly">
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/wpress.svg" alt="">
+                        <figcaption class="text-center">Wordpress</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/mongo.svg" alt="">
+                        <figcaption class="text-center">MongoDB</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/node.svg" alt="">
+                        <figcaption class="text-center">Node.js</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/express.svg" alt="">
+                        <figcaption class="text-center">Express.js</figcaption>
+                    </div>
+                    <div>
+                        <img class="skillimg img-fluid" src="../public/assets/git.svg" alt="">
+                        <figcaption class="text-center">Git</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 container-fluid">
+            <h2 id="projects" style="color: #4D869C;">My Project at a Glance <span class="bi bi-box-arrow-right"></span>
+            </h2>
+            <p class="text-center fst-italic" style="color: #7AB2B2;">Talk is cheap, Show me the code.</p>
+        </div>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="../public/assets/project.png" width="400" height="350" class="img-fluid"
+                        alt="Portfolio Image" id="portfolioImage">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <p>For Datiled Work - <a href="https://github.com/Shubham112004" target="_blank"
+                            style="text-decoration: none;"><span class="bi bi-github" style="font-size: 18px;"></span>
+                            Shubham112004</a></p>
+                    <div id="tabs">
+                        <ul class="d-flex flex-wrap gap-5">
+                            <div>
+                                <li><a href="https://github.com/Shubham112004/Medic-Website" target="_blank">Medic
+                                        Website
+                                        UI</a></li>
+                                <li><a href="https://github.com/Shubham112004/Personal-Portfolio"
+                                        target="_blank">Personal
+                                        Portfolio</a>
+                                </li>
+                            </div>
+                            <div>
+                                <li><a href="https://github.com/Shubham112004/pharma-project" target="_blank">Pharma
+                                        Project</a></li>
+                                <li><a href="https://github.com/Shubham112004/Parallax-Website" target="_blank">Parallax
+                                        UI
+                                        Demo</a></li>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" id="allProjects">View All
+                                    Projects</button>
+                            </div>
+                        </ul>
+                        <div style="height: 180px; overflow: auto;">
+                            <div id="tabs-1">
+                                <h2>Medic Website UI</h2>
+                                <p>Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut
+                                    dolor
+                                    nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+                            </div>
+                            <div id="tabs-2">
+                                <h2>Personal Portfolio</h2>
+                                <p>Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus
+                                    pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel
+                                    felis.
+                                    Mauris consectetur tortor et purus.</p>
+                            </div>
+                            <div id="tabs-3">
+                                <h2>Pharma Project</h2>
+                                <p>Designed and developed a comprehensive website for VishwaPharma, a leading pharmacy
+                                    college. The website showcases the college's strengths, services, and facilities
+                                    through
+                                    interactive features such as a "Why Choose Us" section highlighting key advantages
+                                    in
+                                    three words and a detailed "We Provide" section with concise descriptions.
+                                    Implemented
+                                    an accordion feature for organized content display and added custom messages for
+                                    enhanced user engagement. Applied responsive design principles to ensure optimal
+                                    viewing
+                                    across various devices.</p>
+                            </div>
+                            <div id="tabs-4">
+                                <h2>Parallax UI Demo</h2>
+                                <p>I developed a comprehensive Parallax Adventure website that showcases various
+                                    thrilling
+                                    activities such as Biking, Paragliding, and Scuba Diving. This project highlights my
+                                    proficiency in web development using HTML and CSS, featuring a visually engaging
+                                    parallax scrolling effect.</p>
+                                <ul>
+                                    <li>Parallax Scrolling</li>
+                                    <li>Responsive Design</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <h2 id="contactMe" style="color: #4D869C;">Let's Talk <span class="bi bi-box-arrow-right"></span>
+        </h2>
+        <div class="letsTalk d-flex flex-wrap">
+            <div class="letsTalkImg">
+                <img src="../public/assets/aabb.gif" width="600" height="430" alt="" class="img-fluid">
+            </div>
+            <div class="letsTalkForm">
+                <form id="myForm">
+                    <label for="" class="form-label">Name</label>
+                    <input type="text" name="Name" id="Name" class="form-control" required>
+                    <label for="" class="form-label">Email</label>
+                    <input type="email" name="Email" id="Email" class="form-control" required>
+                    <label for="" class="form-label">Message</label>
+                    <textarea name="Message" id="Message" class="form-control"></textarea>
+                    <button class="btn btn-primary mt-3" id="submitResponse">Submit <span
+                            class="bi bi-send-arrow-up"></span></button>
+                </form>
+
+                <div class="d-flex flex-wrap gap-5 mt-4">
+                    <a href="mailto:shubhamgaikwad2k4@gmail.com" target="_blank" style="text-decoration: none;"><span
+                            class="bi bi-envelope"></span>
+                        shubhamgaikwad2k4</a>
+                    <a href="https://www.linkedin.com/in/shubham2k24/" target="_blank"
+                        style="text-decoration: none;"><span class="bi bi-linkedin"></span>
+                        shubham2k24</a>
+                    <a href="https://github.com/Shubham112004" target="_blank" style="text-decoration: none;"><span
+                            class="bi bi-github"></span>
+                        shubham112004</a>
+                </div>
+                <div class="mt-4">
+                    <button class="btn btn-primary">Resume <span class="bi bi-download"></span></button>
+                    <a href=""><span></span></a>
+                </div>
+                <div class="d-flex justify-content-center align-items-center" style="margin-top: 100px;">
+                    <div>
+                        <a href="#"
+                            style="text-decoration: none; background-color: #4D869C; font-size: 20px; padding: 8px; border-radius: 5px; color: #CDE8E5; ">Go
+                            Top <span class="bi bi-arrow-bar-up"></span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
