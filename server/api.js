@@ -2,10 +2,16 @@ const { MongoClient } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
 
-const connectionString = "mongodb+srv://shubhamgaikwad2k4:hCpfqruub8PlI9rD@portfolio.cdkosbs.mongodb.net/?retryWrites=true&w=majority&appName=portfolio";
+const connectionString = "mongodb+srv://shubhamgaikwad2k4:hCpfqruub8PlI9rD@portfolio.cdkosbs.mongodb.net/portfolio?retryWrites=true&w=majority&appName=portfolio";
 
 const app = express();
-app.use(cors());
+app.use(cors(
+    {
+        origin: [""],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
